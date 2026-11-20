@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#FFF1F6" id="tc">
+<script>try{var s=localStorage.getItem("lv-theme");document.documentElement.dataset.theme=s||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light")}catch(e){}</script>
+<title>👁️ ปฏิทินการลาของจักษุแพทย์</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FFF1F6;--pn:#fff;--bl:#FEE0E9;--ro:#F5C9D4;--ri:#C2577A;--lf:#C7DD9D;--mi:#5E7A2E;--ink:#4A4146;--mu:#8E8589;--ln:#F6DDE5;--ls:#EEF5E1;--ls2:#F5F9EC;--sh:0 10px 30px -12px rgba(214,120,152,.28);--gr:linear-gradient(135deg,#F28FB0,#F5AFC4 60%,#F7C3D2);--gg:linear-gradient(135deg,#7E9A4B,#9DB86A 60%,#B3CC85);--so:linear-gradient(135deg,#FEE0E9,#FFF1F6 45%,#E6F0D2);color-scheme:light}
+:root[data-theme=dark]{--bg:#231A1F;--pn:#2E2228;--bl:#3D2A33;--ro:#5A3A48;--ri:#F7A9C0;--lf:#4C5E33;--mi:#C7DD9D;--ink:#F6E9EE;--mu:#B9A6AE;--ln:#3F2E36;--ls:#2F3A25;--ls2:#283022;--sh:0 10px 30px -14px rgba(0,0,0,.6);--so:linear-gradient(135deg,#40293A,#2E2228 60%,#2E3527);color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg) linear-gradient(115deg,var(--bg) 40%,var(--ls2)) fixed;color:var(--ink);font:300 15px/1.6 Prompt,system-ui,sans-serif}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:2.5px solid var(--ri);outline-offset:2px;border-radius:10px}
+html{-webkit-text-size-adjust:100%}.app{max-width:1180px;margin:0 auto;padding:max(18px,env(safe-area-inset-top)) max(20px,env(safe-area-inset-right)) calc(56px + env(safe-area-inset-bottom)) max(20px,env(safe-area-inset-left))}
+.hero{position:relative;overflow:hidden;background:var(--so);border-radius:32px;box-shadow:var(--sh);padding:28px 30px}
+.hero h1{margin:2px 0 4px;font-size:clamp(26px,4.4vw,42px);font-weight:600;line-height:1.25;color:var(--ri)}
+.kick{margin:0;color:var(--mi);font-weight:500}
+.lead{margin:0;color:var(--mu)}
+.sync{display:inline-block;margin:12px 0 0;font-size:12.5px;padding:3px 12px;border-radius:999px;background:var(--pn);color:var(--mu)}
+.sync.warn{background:#FFF1CC;color:#8A5A00}
+.th{position:absolute;top:14px;right:14px;z-index:3;width:42px;height:42px;border:0;border-radius:50%;cursor:pointer;font-size:20px;background:var(--pn);box-shadow:var(--sh);transition:transform .25s}.th:hover{transform:rotate(20deg) scale(1.08)}
+.fl i{position:absolute;font-style:normal;font-size:30px;opacity:.85;animation:bob 5s ease-in-out infinite}
+.fl i:nth-child(1){right:7%;top:14%}.fl i:nth-child(2){right:18%;top:56%;animation-delay:-1s}.fl i:nth-child(3){right:3%;top:60%;animation-delay:-2s;font-size:38px}
+.fl i:nth-child(4){right:26%;top:12%;animation-delay:-3s}.fl i:nth-child(5){right:13%;top:34%;animation-delay:-4s;font-size:22px}.fl i:nth-child(6){right:33%;top:62%;animation-delay:-2.5s;font-size:24px}
+@keyframes bob{50%{transform:translateY(-8px) rotate(6deg)}}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:16px 0}
+.k{display:flex;align-items:center;gap:12px;background:var(--pn);border-radius:22px;padding:14px 16px;box-shadow:var(--sh)}
+.k .ic{display:grid;place-items:center;width:46px;height:46px;border-radius:16px;font-size:24px;background:var(--bl)}
+.k:nth-child(even) .ic{background:var(--ls)}
+.k b{display:block;font-size:28px;font-weight:600;line-height:1.1}
+.k span{font-size:12.5px;color:var(--mu)}
+.panel{background:var(--pn);border-radius:26px;box-shadow:var(--sh);padding:14px 16px}
+.today{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.today>b{font-weight:500;margin-right:4px}
+.tp{border:0;cursor:pointer;border-radius:999px;padding:3px 12px 3px 8px;background:var(--bl);box-shadow:inset 3px 0 0 var(--c);font-size:13.5px}
+.tp:hover{filter:brightness(.97)}
+.none{color:var(--mi);font-size:14px}
+.bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:16px 0 12px}
+.bar h2{margin:0;font-size:22px;font-weight:500;color:var(--ri);flex:1;min-width:170px}
+.bar button,.bar select,.bar input{border:0;border-radius:999px;background:var(--pn);box-shadow:var(--sh);height:38px;padding:0 14px;cursor:pointer;color:var(--mi)}
+.bar input{cursor:text;width:170px;color:var(--ink)}
+.bar .go{background:var(--gr);color:#fff;font-weight:500}
+.dow,.grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+.dow span{text-align:center;font-size:12.5px;color:var(--mi);padding-bottom:6px;border-bottom:2px solid var(--lf)}
+.dow span:first-child{color:var(--ri);border-color:var(--ro)}
+.grid{margin-top:6px}
+.mc{border:0;cursor:pointer;text-align:left;background:var(--ls2);border-radius:14px;min-height:108px;padding:6px;display:flex;flex-direction:column;gap:4px;min-width:0;transition:transform .15s}
+.mc:hover{transform:translateY(-2px);background:var(--ls)}
+.mc.h1{background:var(--ls)}.mc.h2{background:var(--bl)}.mc.h3{background:var(--ro)}
+.mc.out{opacity:.35}.mc.past{opacity:.78}
+.mc.today{outline:2.5px solid var(--ri)}
+.top{display:flex;justify-content:space-between;align-items:center;gap:4px}
+.mn{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;font-size:14px;font-weight:600;color:var(--mi)}
+.mc.today .mn{background:var(--gr);color:#fff}
+.bd{font-size:11.5px;font-weight:500;border-radius:999px;padding:0 8px;background:var(--pn);color:var(--ri);white-space:nowrap}
+.bd.w{background:#FFE08A;color:#7A4A00}
+.chs{display:flex;flex-direction:column;gap:3px;width:100%}
+.ch{display:block;border-radius:7px;padding:1px 6px;color:#fff;font-size:11px;line-height:1.4;min-width:0}
+.ch.pd{outline:1.5px dashed rgba(255,255,255,.9);outline-offset:-2px}
+.ch span{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.more{font-size:11px;color:var(--ri);font-weight:500;padding-left:2px}
+.notice{margin:14px 0 0;padding:8px 16px;border-radius:16px;background:#FFF1CC;color:#7A4A00;font-size:13.5px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;margin:14px 4px 0;font-size:12.5px;color:var(--mu)}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:4px;margin-right:5px;vertical-align:-1px}
+.foot{margin:26px 0 0;text-align:center;font-size:13px;color:var(--mu)}.foot p{margin:0 0 8px}.foot .ct{display:inline-block;background:var(--so);color:var(--ri);font-size:15px;font-weight:500;border-radius:999px;padding:8px 22px;box-shadow:var(--sh)}.foot .ct b{font-size:17px;color:var(--mi)}
+dialog{border:0;padding:0;border-radius:28px;width:min(560px,calc(100vw - 24px));max-height:min(88vh,780px);background:var(--bg);color:var(--ink);box-shadow:0 30px 60px -20px rgba(120,60,80,.5)}
+dialog[open]{animation:pop .42s cubic-bezier(.2,1.4,.4,1)}
+@keyframes pop{from{transform:scale(.82) translateY(16px);opacity:0}}
+dialog::backdrop{background:rgba(74,65,70,.4);backdrop-filter:blur(2px)}
+.sin{display:flex;flex-direction:column;max-height:inherit}
+.shd{display:flex;align-items:center;gap:14px;padding:18px 20px 14px;background:var(--so)}
+.big{flex:none;text-align:center;background:var(--gg);color:#fff;border-radius:18px;padding:8px 12px;min-width:66px}
+.big b{display:block;font-size:30px;font-weight:600;line-height:1}.big span{font-size:12px}
+.shd h3{margin:0;font-size:18px;font-weight:500}.shd p{margin:0;font-size:13px;color:var(--mu)}
+.shd .x{margin-left:auto;border:0;background:var(--pn);width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:16px;color:var(--ri);flex:none}
+.sbd{overflow-y:auto;padding:12px 16px 6px;display:grid;gap:10px}
+.lv{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;background:var(--pn);border-radius:18px;padding:12px 14px;border-left:5px solid var(--c);box-shadow:var(--sh)}
+.av{grid-row:span 2;display:grid;place-items:center;width:46px;height:46px;border-radius:50%;font-size:26px;background:var(--bl)}
+.lv b{font-weight:500;font-size:15.5px}
+.lv .dp{display:block;font-size:12.5px;color:var(--mu)}
+.tg{display:flex;flex-wrap:wrap;gap:6px;margin:2px 0}
+.tg span{font-size:12px;border-radius:999px;padding:1px 10px;background:var(--bl)}
+.tg .ty{background:var(--c);color:#fff;font-weight:500}
+.lv p{grid-column:1/-1;margin:2px 0 0;font-size:13.5px}
+.empty{text-align:center;padding:34px 0;color:var(--mu)}.empty b{display:block;font-size:40px;font-weight:400}
+.snav{display:flex;justify-content:space-between;padding:10px 16px 16px;gap:8px}
+.snav button{border:0;background:var(--pn);border-radius:999px;padding:7px 16px;cursor:pointer;font-size:13px;color:var(--mi);box-shadow:var(--sh)}
+@media(max-width:820px){.kpis{grid-template-columns:repeat(2,1fr)}.fl i:nth-child(n+4){display:none}.hero{padding:22px 20px}}
+@media(max-width:700px){.app{padding:12px 10px 40px}.mc{min-height:70px;padding:4px 3px}.ch{height:6px;padding:0}.ch span{display:none}.more{font-size:9.5px}.bd{padding:0 5px;font-size:10.5px}.mn{width:22px;height:22px;font-size:12.5px}.grid,.dow{gap:3px}.bar input{flex:1}}
+@media(max-width:700px){
+.fl{display:none}.hero{border-radius:24px;padding:20px 16px 18px}.hero h1{font-size:25px;padding-right:44px}.th{top:10px;right:10px;width:38px;height:38px}
+.kpis{gap:8px;margin:12px 0}.k{padding:10px 12px;gap:8px;border-radius:18px}.k .ic{width:38px;height:38px;font-size:20px;border-radius:13px}.k b{font-size:22px}.k span{font-size:11.5px;line-height:1.3;display:block}
+.panel{border-radius:20px;padding:10px 8px}.today.panel{padding:10px 12px}
+.bar{gap:8px}.bar h2{flex:1 0 100%;font-size:19px}.bar input{flex:1 1 100%;width:auto;order:3}.bar select{flex:1;min-width:0;order:4}.bar #mp{order:5}.bar #tdy{order:6}.bar #mn{order:7}.bar button,.bar select,.bar input{height:42px}
+.dow span{font-size:11px}.legend{font-size:11.5px;gap:4px 10px}
+dialog{width:100vw;max-width:100vw;margin:auto 0 0;max-height:86vh;border-radius:26px 26px 0 0}
+dialog[open]{animation:sheet .35s cubic-bezier(.2,1,.3,1)}
+.shd{padding:16px 14px 12px}.sbd{padding:10px 12px 4px}.snav{padding:8px 12px calc(14px + env(safe-area-inset-bottom))}.snav button{flex:1;padding:11px}
+}
+@keyframes sheet{from{transform:translateY(60%);opacity:.4}}
+@media(prefers-reduced-motion:reduce){.fl i,dialog[open]{animation:none}.mc{transition:none}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="hero">
+<div class="fl" aria-hidden="true"><i>👁️</i><i>👓</i><i>🏥</i><i>🌿</i><i>💗</i><i>🔬</i></div>
+<button class="th" id="th" type="button" aria-label="สลับโหมดมืด/สว่าง">🌙</button>
+<p class="kick">🏥 <span id="org"></span></p>
+<h1>👁️ ปฏิทินการลาของจักษุแพทย์</h1>
+<p class="lead" id="lead"></p>
+<span class="sync" id="sync"></span>
+</header>
+<section class="kpis">
+<div class="k"><div class="ic">👨‍⚕️</div><div><b id="k1">0</b><span>แพทย์ทั้งหมด</span></div></div>
+<div class="k"><div class="ic">🏖️</div><div><b id="k2">0</b><span>ลาวันนี้</span></div></div>
+<div class="k"><div class="ic">✅</div><div><b id="k3">0</b><span>ปฏิบัติงานวันนี้</span></div></div>
+<div class="k"><div class="ic">📆</div><div><b id="k4">0</b><span>เริ่มลาใน 7 วันข้างหน้า</span></div></div>
+</section>
+<section class="panel today"><b>🌴 วันนี้ใครลา</b><span id="today" class="today" style="padding:0"></span></section>
+<p class="notice" id="notice" hidden></p>
+<div class="bar">
+<h2 id="mt"></h2>
+<input id="q" type="search" placeholder="🔍 ค้นหาชื่อแพทย์" aria-label="ค้นหาชื่อแพทย์">
+<select id="dp" aria-label="เลือกแผนก"></select>
+<button id="mp" aria-label="เดือนก่อนหน้า">‹</button><button id="tdy" class="go">วันนี้</button><button id="mn" aria-label="เดือนถัดไป">›</button>
+</div>
+<section class="panel">
+<div class="dow"><span>อา.</span><span>จ.</span><span>อ.</span><span>พ.</span><span>พฤ.</span><span>ศ.</span><span>ส.</span></div>
+<div class="grid" id="cal"></div>
+<div class="legend" id="legend"></div>
+</section>
+<footer class="foot"><p>💡 กดที่วันที่เพื่อดูรายละเอียดการลา</p><p class="ct">☎️ ธุรการจักษุ ติดต่อภายใน <b>9939</b></p></footer>
+</div>
+<dialog id="dlg" aria-labelledby="st"><div class="sin">
+<div class="shd"><div class="big"><b id="sd"></b><span id="sm"></span></div><div><h3 id="st"></h3><p id="ss"></p></div><button class="x" id="x" aria-label="ปิด">✕</button></div>
+<div class="sbd" id="sb"></div>
+<div class="snav"><button id="pv">‹ วันก่อนหน้า</button><button id="nx">วันถัดไป ›</button></div>
+</div></dialog>
+<script>
+/* ===== ตั้งค่า: วางลิงก์ CSV จาก Google Sheet (ไฟล์ > แชร์ > เผยแพร่ไปยังเว็บ > เลือกแท็บ > CSV) ===== */
+const CFG={
+ org:"หน่วยจักษุวิทยา",
+ leavesCsv:"",   // แท็บ "https://docs.google.com/spreadsheets/d/e/2PACX-1vQZ1E4yC5mGKMTAXLz-WZ18rzKg7-1Nmhb4B7S4n0_NtCDzRMsdtYFmlOfuUDV8UQNkGvGtFnJTqPq_/pub?gid=1058744340&single=true&output=csv"  (จำเป็น)
+ doctorsCsv:"",  // แท็บ "https://docs.google.com/spreadsheets/d/e/2PACX-1vQZ1E4yC5mGKMTAXLz-WZ18rzKg7-1Nmhb4B7S4n0_NtCDzRMsdtYFmlOfuUDV8UQNkGvGtFnJTqPq_/pub?gid=1513494298&single=true&output=csv" (ไม่บังคับ แต่ช่วยนับแพทย์ครบทุกคน)
+ warnAt:4,       // ลาตั้งแต่กี่ท่านต่อวันให้ขึ้น ⚠️
+ refreshMin:5    // รีเฟรชข้อมูลอัตโนมัติทุกกี่นาที
+};
+const EMB={"d":[["นายวรภัทร วงษ์สวัสดิ์","Retina"],["นางสาวสุดาวดี สมบูรณ์ธนกิจ","Retina"],["นางสาวพิริญา สุ่มสวัสดิ์","Retina"],["นางสาวอุมาภรณ์ จิตตวัฒนรัตน์","Retina"],["นายเอกชัย อารยางกูร","Retina"],["นางวงศ์ศิริ ทวีบรรจงสิน","Retina"],["นางสาวกาญจน์ธิดา จันทน์วิมล","Retina"],["นางสาววรินทร์ สมิทธิเมธินทร์","Retina"],["นางสาวนวลพร ศรีม่วง","Retina"],["นางสาวทิฆัมพร จันทร์ภู่","Retina"],["นางสาวปาณิศา สิงหเนตร","Retina"],["นางปิยวดี ชัยมงคลตระกูล","Neuro"],["นายปรเมศวร์ เลาวณาภิบาล","Neuro"],["นายจิเมธัส เฉลิมพงษ์","Neuro"],["นางสาวดวงดาว ทัศณรงค์","Glaucoma"],["นางสาวอรอร ธงอินเนตร","Glaucoma"],["นางสาวสุพัตรา จามรสุวรรณ","Glaucoma"],["นายปิติพงศ์ สุรเมธากุล","Glaucoma"],["นางสาวกุลวรรณ โรจนเนืองนิตย์","Glaucoma"],["นายนพคุณ ปัญญายิ่งยง","Uveitis"],["นายโยธิน ฐิตวัฒนกุล","Uveitis"],["นางสาวณิศวรรณ วัฒนศัพท์","Uveitis"],["นางสาวสุณิสา สินธุวงศ์","Oculoplastic & Reconstructive"],["นางมิ่งขวัญ ลำยองเสถียร","Oculoplastic & Reconstructive"],["นางสาวอรวีณัฏฐ์ นิมิตรวงศ์สกุล","Oculoplastic & Reconstructive"],["นายสรรเสริญ วัฒนะพานิช","Oculoplastic & Reconstructive"],["นางนวลจิรา ประกายรุ้งทอง","Cornea"],["นางสาวกนกทิพย์ มันตโชติ","Cornea"],["นางสาวเบญจมา กีรติดำเกิงสกุล","Cornea"],["นายวีรภัทร อุดมวงศ์","Cornea"],["นางสาวชิดชนก ตันติพัฒน์","Cornea"],["นางสาวอาภา พรเศรษฐ์","Pediatric"],["นางสาวจิราภา ทรงเพ็ชร์มงคล","Pediatric"],["พญ.แพรวไพลิน ไข่มุก","รายคาบ"],["พญ.เพ็ญพรรณ หิรัญโชติ","รายคาบ"],["นพ.ปานเนตร ปางพุฒิพงศ์","รายคาบ"],["นางสายจินต์ อิสีประดิฐ","รายคาบ"],["นพ.ศักดิ์สวัสดิ์ สุรวิชัย","รายคาบ"],["นพ.จักรชวิน กนกกันฑพงษ์","รายคาบ"],["พญ.พันธราภรณ์ ตั้งธรรมรักษ์","รายคาบ"],["พญ.วธูกานต์ รุ่งภูวภัทร","รายคาบ"],["นพ.จตุพร งามจิตติอำไพ","รายคาบ"]],"l":[["นางสาวพิริญา สุ่มสวัสดิ์","Retina","อบรม","2026-08-24","2026-08-26","","",""],["นางมิ่งขวัญ ลำยองเสถียร","Oculoplastic & Reconstructive","อจ.สอนพิเศษ","2026-08-25","2026-08-25","","",""],["นางสาววรินทร์ สมิทธิเมธินทร์","Retina","ประชุม","2026-08-25","2026-08-26","","",""],["นางสาวสุณิสา สินธุวงศ์","Oculoplastic & Reconstructive","อจ.พิเศษ","2026-08-25","2026-08-25","","",""],["นางสาวอรวีณัฏฐ์ นิมิตรวงศ์สกุล","Oculoplastic & Reconstructive","อจ.สอนพิเศษ","2026-08-25","2026-08-25","","",""],["นางสาวอุมาภรณ์ จิตตวัฒนรัตน์","Retina","ประชุม ตปท.","2026-08-26","2026-09-01","","",""],["นางสาวดวงดาว ทัศณรงค์","Glaucoma","ประชุม","2026-08-27","2026-08-27","","",""],["นางสาวจิราภา ทรงเพ็ชร์มงคล","Pediatric","สอน พยบ.","2026-08-28","2026-08-28","","",""],["นางสาวสุณิสา สินธุวงศ์","Oculoplastic & Reconstructive","มีสอน","2026-08-28","2026-08-28","off OPD","",""],["นายวรภัทร วงษ์สวัสดิ์","Retina","ประชุม ตปท.","2026-08-30","2026-09-06","","",""],["นางมิ่งขวัญ ลำยองเสถียร","Oculoplastic & Reconstructive","อจ.สอนพิเศษ","2026-08-31","2026-08-31","","",""],["นางสาวพิริญา สุ่มสวัสดิ์","Retina","อบรม","2026-08-31","2026-08-31","","",""],["นางสาวสุณิสา สินธุวงศ์","Oculoplastic & Reconstructive","อจ.พิเศษ","2026-08-31","2026-08-31","","",""],["นางสาวอรวีณัฏฐ์ นิมิตรวงศ์สกุล","Oculoplastic & Reconstructive","อจ.สอนพิเศษ","2026-08-31","2026-08-31","","",""],["นายวรภัทร วงษ์สวัสดิ์","Retina","สอน พยบ.","2026-08-31","2026-08-31","","",""],["นางมิ่งขวัญ ลำยองเสถียร","Oculoplastic & Reconstructive","อจ.สอนพิเศษ","2026-09-01","2026-09-02","","",""],["นางสาวนวลพร ศรีม่วง","Retina","อาจารย์สอนพิเศษ","2026-09-01","2026-09-01","","",""],["นางสาวพิริญา สุ่มสวัสดิ์","Retina","อบรม","2026-09-01","2026-09-02","","",""],["นางสาวสุณิสา สินธุวงศ์","Oculoplastic & Reconstructive","อาจารย์สอน","2026-09-01","2026-09-02","","",""],["นางสาวอรวีณัฏฐ์ นิมิตรวงศ์สกุล","Oculoplastic & Reconstructive","อาจารย์สอน","2026-09-01","2026-09-02","","",""],["นางสาวชิดชนก ตันติพัฒน์","Cornea","อบรม","2026-09-02","2026-09-04","","",""],["นางสาวอาภา พรเศรษฐ์","Pediatric","ออกหน่วย","2026-09-03","2026-09-03","","",""],["นายปิติพงศ์ สุรเมธากุล","Glaucoma","สอน พยบ.","2026-09-04","2026-09-04","","",""],["นางสาวพิริญา สุ่มสวัสดิ์","Retina","อบรม","2026-09-06","2026-09-12","","",""],["นางสาวเบญจมา กีรติดำเกิงสกุล","Cornea","สอน พยบ.","2026-09-07","2026-09-07","","",""],["นางมิ่งขวัญ ลำยองเสถียร","Oculoplastic & Reconstructive","ลาพักผ่อน","2026-09-08","2026-09-09","","",""],["นางวงศ์ศิริ ทวีบรรจงสิน","Retina","off ในเวลา","2026-09-08","2026-09-08","นอกเวลาตรวจปกติ","",""],["นางสาวนวลพร ศรีม่วง","Retina","อาจารย์สอนพิเศษ","2026-09-08","2026-09-08","","",""],["นางสาววรินทร์ สมิทธิเมธินทร์","Retina","ลาพักผ่อน","2026-09-08","2026-09-16","","",""],["นายปรเมศวร์ เลาวณาภิบาล","Neuro","สอน พยบ.","2026-09-08","2026-09-08","","",""],["นายปิติพงศ์ สุรเมธากุล","Glaucoma","พักผ่อน","2026-09-08","2026-09-08","","",""],["นางสาวกาญจน์ธิดา จันทน์วิมล","Retina","ประชุม","2026-09-09","2026-09-11","","",""],["นางสาวกาญจน์ธิดา จันทน์วิมล","Retina","ดูงานนอก รพ.","2026-09-09","2026-09-11","","",""],["นายปิติพงศ์ สุรเมธากุล","Glaucoma","ประชุม ตปท.","2026-09-09","2026-09-15","","",""],["นายวรภัทร วงษ์สวัสดิ์","Retina","ประชุม","2026-09-09","2026-09-09","","",""],["นายวีรภัทร อุดมวงศ์","Cornea","ประชุม ตปท.","2026-09-09","2026-09-16","(16 กย. ไม่ลงตรวจ+off นอกเวลา)","",""],["นางนวลจิรา ประกายรุ้งทอง","Cornea","ประชุม ตปท.","2026-09-10","2026-09-17","","",""],["นางสาวณิศวรรณ วัฒนศัพท์","Uveitis","ลากิจ","2026-09-11","2026-09-11","","",""],["นางสาวณิศวรรณ วัฒนศัพท์","Uveitis","ลาพักผ่อน","2026-09-14","2026-09-17","","",""],["นางสาวพิริญา สุ่มสวัสดิ์","Retina","อบรม","2026-09-14","2026-09-16","","",""],["พญ.แพรวไพลิน ไข่มุก","รายคาบ","ลา","2026-09-14","2026-09-14","","",""],["นางสาวนวลพร ศรีม่วง","Retina","อาจารย์สอนพิเศษ","2026-09-15","2026-09-15","","",""],["นางสาวจิราภา ทรงเพ็ชร์มงคล","Pediatric","ลาพักผ่อน","2026-09-16","2026-09-17","","",""],["นางสาวอาภา พรเศรษฐ์","Pediatric","ออกหน่วย","2026-09-17","2026-09-17","","",""],["นางสาวจิราภา ทรงเพ็ชร์มงคล","Pediatric","ลาพักผ่อน","2026-09-21","2026-09-21","","",""],["นางสาวพิริญา สุ่มสวัสดิ์","Retina","อบรม","2026-09-21","2026-09-23","","",""],["นางสาวนวลพร ศรีม่วง","Retina","อาจารย์สอนพิเศษ","2026-09-22","2026-09-22","","",""],["นางสาวกุลวรรณ โรจนเนืองนิตย์","Glaucoma","ประชุมออนไลน์","2026-09-23","2026-09-23","(14.00-15.00)น.","",""],["นางสาวอาภา พรเศรษฐ์","Pediatric","ประชุม WHO","2026-09-24","2026-09-24","","",""],["นางสาวดวงดาว ทัศณรงค์","Glaucoma","พักผ่อน","2026-09-25","2026-09-25","","",""],["นางสาวอาภา พรเศรษฐ์","Pediatric","วิทยากร","2026-09-27","2026-09-27","","",""],["นางนวลจิรา ประกายรุ้งทอง","Cornea","ประชุม (บ่าย)","2026-09-29","2026-09-29","","ครึ่งวัน",""],["นางวงศ์ศิริ ทวีบรรจงสิน","Retina","ประชุม ตปท.","2026-09-29","2026-10-06","(ไม่ลงตรวจ+off นอกเวลา)","",""],["นางสาวชิดชนก ตันติพัฒน์","Cornea","ประชุม (บ่าย)","2026-09-29","2026-09-29","","ครึ่งวัน",""],["นางสาวนวลพร ศรีม่วง","Retina","อาจารย์สอนพิเศษ","2026-09-29","2026-09-29","","",""],["นางสาวนวลพร ศรีม่วง","Retina","ประชุม (บ่าย)","2026-09-29","2026-09-29","","ครึ่งวัน",""],["นางสาวอรวีณัฏฐ์ นิมิตรวงศ์สกุล","Oculoplastic & Reconstructive","ประชุม (บ่าย)","2026-09-29","2026-09-29","","ครึ่งวัน",""],["นายวรภัทร วงษ์สวัสดิ์","Retina","ประชุม (บ่าย)","2026-09-29","2026-09-29","","ครึ่งวัน",""],["นายเอกชัย อารยางกูร","Retina","","2026-09-29","2026-09-29","(ลงตรวจปกติแต่ เคสนัดและนอกเวลาให้น้อยลง)","",""],["นางสาวจิราภา ทรงเพ็ชร์มงคล","Pediatric","ลาพักผ่อน","2026-09-30","2026-09-30","","",""],["นางสาวชิดชนก ตันติพัฒน์","Cornea","วิทยากร","2026-09-30","2026-09-30","","",""],["นางสาวทิฆัมพร จันทร์ภู่","Retina","ประชุม ตปท.","2026-09-30","2026-10-06","","",""],["นางสาวพิริญา สุ่มสวัสดิ์","Retina","ประชุม ตปท.","2026-09-30","2026-10-06","","",""],["นายเอกชัย อารยางกูร","Retina","ประชุม ตปท.","2026-09-30","2026-10-06","","",""],["นางสาวดวงดาว ทัศณรงค์","Glaucoma","อบรม","2026-10-01","2026-10-02","","",""],["นางสาวอาภา พรเศรษฐ์","Pediatric","ประชุม","2026-10-01","2026-10-01","","",""],["พญ.เพ็ญพรรณ หิรัญโชติ","รายคาบ","แพทย์อยู่ OR","2026-10-01","2026-10-01","","",""],["นางสาวอรวีณัฏฐ์ นิมิตรวงศ์สกุล","Oculoplastic & Reconstructive","ลาพักผ่อน","2026-10-06","2026-10-08","","",""],["นางสาวเบญจมา กีรติดำเกิงสกุล","Cornea","ประชุม ตปท.","2026-10-07","2026-10-09","","",""],["นางนวลจิรา ประกายรุ้งทอง","Cornea","ลาพักผ่อน","2026-10-08","2026-10-16","","",""],["นางมิ่งขวัญ ลำยองเสถียร","Oculoplastic & Reconstructive","ลาพักผ่อน","2026-10-12","2026-10-14","","",""],["นางสาวกุลวรรณ โรจนเนืองนิตย์","Glaucoma","อาจารย์สอนพิเศษ","2026-10-12","2026-10-12","","",""],["นายปรเมศวร์ เลาวณาภิบาล","Neuro","พักผ่อน","2026-10-12","2026-10-12","","",""],["นางสาวนวลพร ศรีม่วง","Retina","ลา ตปท.","2026-10-14","2026-10-21","","",""],["นายนพคุณ ปัญญายิ่งยง","Uveitis","ลาพักผ่อน","2026-10-14","2026-10-16","","",""],["นางสาวดวงดาว ทัศณรงค์","Glaucoma","ตรวจประเมิน","2026-10-15","2026-10-15","","",""],["นางสาวอาภา พรเศรษฐ์","Pediatric","ลาพักผ่อน","2026-10-15","2026-10-15","","",""],["นางสาวกุลวรรณ โรจนเนืองนิตย์","Glaucoma","อาจารย์สอนพิเศษ","2026-10-19","2026-10-19","","",""],["นางสาวอาภา พรเศรษฐ์","Pediatric","ลาพักผ่อน","2026-10-19","2026-10-19","","",""],["นางสาวทิฆัมพร จันทร์ภู่","Retina","ลา ตปท.","2026-10-20","2026-10-24","","",""],["นางสาวนวลพร ศรีม่วง","Retina","อาจารย์สอนพิเศษ","2026-10-20","2026-10-20","","",""],["นางสาวสุณิสา สินธุวงศ์","Oculoplastic & Reconstructive","วิทยากร ตปท.","2026-10-22","2026-10-25","","",""],["นางมิ่งขวัญ ลำยองเสถียร","Oculoplastic & Reconstructive","ประชุม ตปท.","2026-10-23","2026-10-25","","",""],["นางสาวกุลวรรณ โรจนเนืองนิตย์","Glaucoma","วิทยากร","2026-10-23","2026-10-23","","",""],["นายจิเมธัส เฉลิมพงษ์","Neuro","ลา","2026-10-25","2026-10-25","","",""],["นางสาวกุลวรรณ โรจนเนืองนิตย์","Glaucoma","อาจารย์สอนพิเศษ","2026-10-26","2026-10-26","","",""],["นางสาวดวงดาว ทัศณรงค์","Glaucoma","อบรม","2026-10-26","2026-10-27","","",""],["นายวรภัทร วงษ์สวัสดิ์","Retina","อบรม","2026-10-26","2026-10-30","","",""],["นางสาวนวลพร ศรีม่วง","Retina","อาจารย์สอนพิเศษ","2026-10-27","2026-10-27","","",""],["นางสาวกุลวรรณ โรจนเนืองนิตย์","Glaucoma","อาจารย์สอนพิเศษ","2026-11-02","2026-11-02","","",""],["นางมิ่งขวัญ ลำยองเสถียร","Oculoplastic & Reconstructive","ตรวจประเมิน","2026-11-03","2026-11-03","","",""],["นางสาวนวลพร ศรีม่วง","Retina","อาจารย์สอนพิเศษ","2026-11-03","2026-11-03","","",""],["นางสาวกาญจน์ธิดา จันทน์วิมล","Retina","ประชุม","2026-11-04","2026-11-04","งด OPD ในเวลา · นอกเวลาลงตรวจปกติ 18.00 น.","",""],["นางสาวดวงดาว ทัศณรงค์","Glaucoma","ตรวจประเมิน","2026-11-05","2026-11-05","","",""],["พญ.เพ็ญพรรณ หิรัญโชติ","รายคาบ","แพทย์ลา","2026-11-05","2026-11-05","","",""],["นางสาวกุลวรรณ โรจนเนืองนิตย์","Glaucoma","อาจารย์สอนพิเศษ","2026-11-09","2026-11-09","","",""],["นายวรภัทร วงษ์สวัสดิ์","Retina","อบรม","2026-11-12","2026-11-12","","",""],["นางสาวณิศวรรณ วัฒนศัพท์","Uveitis","ลากิจ","2026-11-13","2026-11-13","","",""],["นางสาวกุลวรรณ โรจนเนืองนิตย์","Glaucoma","อาจารย์สอนพิเศษ","2026-11-16","2026-11-16","","",""],["นายสรรเสริญ วัฒนะพานิช","Oculoplastic & Reconstructive","ลากิจ","2026-11-16","2026-11-16","","",""],["นางสาวนวลพร ศรีม่วง","Retina","อาจารย์สอนพิเศษ","2026-11-17","2026-11-17","","",""],["นายปิติพงศ์ สุรเมธากุล","Glaucoma","ลาพักผ่อน","2026-11-17","2026-11-17","","",""],["พญ.แพรวไพลิน ไข่มุก","รายคาบ","ลา","2026-11-18","2026-11-18","","",""],["นางสาวปาณิศา สิงหเนตร","Retina","ประชุม ตปท.","2026-11-19","2026-11-22","","",""],["นายวรภัทร วงษ์สวัสดิ์","Retina","ประชุม ตปท.","2026-11-20","2026-11-22","","",""],["นายเอกชัย อารยางกูร","Retina","ประชุม ตปท.","2026-11-20","2026-11-22","","",""],["นางสาวกุลวรรณ โรจนเนืองนิตย์","Glaucoma","อาจารย์สอนพิเศษ","2026-11-23","2026-11-23","","",""],["นางสาวสุณิสา สินธุวงศ์","Oculoplastic & Reconstructive","ลาพักผ่อน ตปท.","2026-11-24","2026-12-01","","",""],["นางนวลจิรา ประกายรุ้งทอง","Cornea","ประชุม ตปท.","2026-11-26","2026-11-29","","",""],["นางสาวกนกทิพย์ มันตโชติ","Cornea","พักผ่อน ตปท.","2026-11-26","2026-11-29","","",""],["นางสาวดวงดาว ทัศณรงค์","Glaucoma","พักผ่อน","2026-11-26","2026-11-26","","",""],["นายวีรภัทร อุดมวงศ์","Cornea","ประชุม ตปท.","2026-11-26","2026-11-29","","",""],["นายสรรเสริญ วัฒนะพานิช","Oculoplastic & Reconstructive","ลาพักผ่อน ตปท.","2026-11-26","2026-11-30","","",""],["นายวรภัทร วงษ์สวัสดิ์","Retina","ประชุม ตปท.","2026-11-28","2026-12-03","","",""],["นายเอกชัย อารยางกูร","Retina","ประชุม ตปท.","2026-11-29","2026-12-02","","",""],["นายสรรเสริญ วัฒนะพานิช","Oculoplastic & Reconstructive","ลาพักผ่อน ตปท.","2026-12-01","2026-12-04","","",""],["นางสาวทิฆัมพร จันทร์ภู่","Retina","ลาพักผ่อน ตปท.","2026-12-03","2026-12-06","","",""],["นางสาวจิราภา ทรงเพ็ชร์มงคล","Pediatric","ลา ตปท","2026-12-05","2026-12-12","","",""],["นายจิเมธัส เฉลิมพงษ์","Neuro","ลากิจ","2026-12-08","2026-12-11","","",""],["นางสาวเบญจมา กีรติดำเกิงสกุล","Cornea","ลาพักผ่อน ตปท.","2026-12-12","2026-12-15","","",""],["นางสาวดวงดาว ทัศณรงค์","Glaucoma","อบรม","2026-12-16","2026-12-18","","",""],["นางสาวนวลพร ศรีม่วง","Retina","ลาพักผ่อน","2026-12-16","2026-12-16","","",""],["นางสาวดวงดาว ทัศณรงค์","Glaucoma","อบรม","2026-12-21","2026-12-23","","",""],["พญ.แพรวไพลิน ไข่มุก","รายคาบ","ลา","2026-12-21","2026-12-21","","",""],["นางสาวอุมาภรณ์ จิตตวัฒนรัตน์","Retina","พักผ่อน ตปท.","2026-12-24","2026-12-30","","",""],["นางวงศ์ศิริ ทวีบรรจงสิน","Retina","พักผ่อน ตปท.","2026-12-26","2027-01-03","","",""],["นางมิ่งขวัญ ลำยองเสถียร","Oculoplastic & Reconstructive","พักผ่อน ตปท.","2026-12-28","2027-01-01","","",""],["นางสาวกุลวรรณ โรจนเนืองนิตย์","Glaucoma","ลาพักผ่อน","2026-12-29","2026-12-30","","",""],["นางสาวปาณิศา สิงหเนตร","Retina","ลา ตปท.","2026-12-29","2026-12-31","","",""],["นางสาวสุณิสา สินธุวงศ์","Oculoplastic & Reconstructive","ลาพักผ่อน","2027-01-04","2027-01-06","","",""],["นางสาวปาณิศา สิงหเนตร","Retina","ลา ตปท.","2027-02-01","2027-02-05","","",""],["พญ.แพรวไพลิน ไข่มุก","รายคาบ","ลา","2027-02-01","2027-02-01","","",""],["พญ.แพรวไพลิน ไข่มุก","รายคาบ","ลา","2027-04-19","2027-04-19","","",""]],"n":[["พญ.พันธราภรณ์ ตั้งธรรมรักษ์","งดลงตรวจและผ่าตัด ตั้งแต่ ก.พ.69 เป็นต้นไป"]]};
+const TYPES=[
+ {e:"🏖️",n:"ลาพักผ่อน",re:/พักผ่อน|พักร้อน|vacation|annual/i,c:"#E8709B"},
+ {e:"🤒",n:"ลาป่วย",re:/ป่วย|sick/i,c:"#E25B5B"},
+ {e:"📝",n:"ลากิจ",re:/กิจ|personal|business/i,c:"#C98A1B"},
+ {e:"🎓",n:"ประชุม/อบรม",re:/ประชุม|อบรม|สัมมนา|ศึกษา|ดูงาน|ตรวจประเมิน|conference|training|meeting/i,c:"#4A92D0"},
+ {e:"🎤",n:"วิทยากร/สอน",re:/วิทยากร|สอน|อจ\.|อาจารย์|lecture|teach/i,c:"#9A78D6"},
+ {e:"✨",n:"อื่นๆ",re:/[\s\S]*/,c:"#7E9A4B"}];
+const typeOf=s=>TYPES.find(t=>t.re.test(s||""));
+const $=s=>document.querySelector(s),p2=n=>String(n).padStart(2,"0");
+const iso=d=>d.getFullYear()+"-"+p2(d.getMonth()+1)+"-"+p2(d.getDate());
+const addD=(d,n)=>new Date(d.getFullYear(),d.getMonth(),d.getDate()+n);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const short=n=>n.trim().replace(/^(นางสาว|นาง|นาย|นพ\.|พญ\.|ดร\.|นายแพทย์|แพทย์หญิง|Dr\.?)\s*/i,"");
+const first=n=>short(n).split(/\s+/)[0];
+const av=n=>/^\s*(พญ|แพทย์หญิง|นาง)/.test(n)?"👩‍⚕️":/^\s*(นพ|นาย)/.test(n)?"👨‍⚕️":"🧑‍⚕️";
+const names=a=>new Set(a.map(l=>l.n)).size;
+const fmt=(d,o)=>d.toLocaleDateString("th-TH",o||{day:"numeric",month:"short",year:"numeric"});
+const TODAY=new Date();TODAY.setHours(0,0,0,0);
+let DOCS=[],LEAVES=[],MAP={},VIS=[],view=new Date(TODAY.getFullYear(),TODAY.getMonth(),1),F={q:"",dept:""},cur="",SYNC={st:"",at:null};
+
+/* ----- อ่านข้อมูลจากชีต ----- */
+function csv(t){const r=[];let w=[],f="",q=false;t=t.replace(/^\uFEFF/,"");
+ for(let i=0;i<t.length;i++){const c=t[i];
+  if(q){if(c==='"'){if(t[i+1]==='"'){f+='"';i++}else q=false}else f+=c}
+  else if(c==='"')q=true;else if(c===","){w.push(f);f=""}
+  else if(c==="\n"||c==="\r"){if(c==="\r"&&t[i+1]==="\n")i++;w.push(f);r.push(w);w=[];f=""}else f+=c}
+ if(f!==""||w.length){w.push(f);r.push(w)}return r}
+const KEYS=[["cover",/แทน|cover|substitute/i],["type",/ประเภท|type/i],["start",/เริ่ม|start|from/i],["end",/สิ้นสุด|ถึง|end|until/i],["dept",/แผนก|สาขา|dept|department/i],["note",/หมายเหตุ|เหตุผล|note|remark/i],["status",/สถานะ|status/i],["half",/ช่วง|period/i],["name",/ชื่อ|แพทย์|name|doctor/i]];
+function table(t){const r=csv(t);if(!r.length)return[];
+ const h=r[0].map(x=>{const k=KEYS.find(([,re])=>re.test(x));return k&&k[0]});
+ return r.slice(1).map(row=>{const o={};h.forEach((k,i)=>{if(k&&!(k in o))o[k]=(row[i]||"").trim()});return o}).filter(o=>o.name)}
+const TM=["ม.ค","ก.พ","มี.ค","เม.ย","พ.ค","มิ.ย","ก.ค","ส.ค","ก.ย","ต.ค","พ.ย","ธ.ค"];
+const TF=["มกรา","กุมภา","มีนา","เมษา","พฤษภา","มิถุนา","กรกฎา","สิงหา","กันยา","ตุลา","พฤศจิกา","ธันวา"];
+function mk(y,m,d){if(y<100)y+=2000;if(y>2400)y-=543;const t=new Date(y,m-1,d);return t.getMonth()===m-1?t:null}
+function pd(s){s=(s||"").trim();let m;
+ if(m=s.match(/^(\d{4})-(\d{1,2})-(\d{1,2})/))return mk(+m[1],+m[2],+m[3]);
+ if(m=s.match(/^(\d{1,2})[\/.\-](\d{1,2})[\/.\-](\d{2,4})/))return mk(+m[3],+m[2],+m[1]);
+ if(m=s.match(/^(\d{1,2})\s*([ก-๙.]+)\s*(\d{2,4})/)){const i=TM.findIndex((a,k)=>m[2].startsWith(a)||m[2].startsWith(TF[k]));if(i>=0)return mk(+m[3],i+1,+m[1])}
+ return null}
+function setDocs(rows){DOCS=rows.map(o=>({n:o.name,dept:o.dept||""}))}
+function setLeaves(rows){const dp={};DOCS.forEach(d=>dp[d.n]=d.dept);
+ LEAVES=rows.map(o=>{let s=pd(o.start),e=pd(o.end)||s;if(!s)return null;if(e<s)[s,e]=[e,s];
+  if(/ยกเลิก|cancel/i.test(o.status||""))return null;
+  return{n:o.name,dept:o.dept||dp[o.name]||"",t:typeOf(o.type),raw:(o.type||"").trim(),s,e,cover:o.cover||"",note:o.note||"",st:o.status||"",pend:/รอ|pending/i.test(o.status||""),half:/ครึ่ง|half/i.test(o.half||""),ab:/ตปท|ต่างประเทศ|abroad/i.test((o.type||"")+(o.note||""))}}).filter(Boolean);
+ if(!DOCS.length){const u=new Map();LEAVES.forEach(l=>u.set(l.n,l.dept));DOCS=[...u].map(([n,dept])=>({n,dept}))}}
+function useEmbed(){setDocs(EMB.d.map(([name,dept])=>({name,dept})));
+ setLeaves(EMB.l.map(([name,dept,type,start,end,note,half,status])=>({name,dept,type,start,end,note,half,status})))}
+async function txt(u){const c=new AbortController(),t=setTimeout(()=>c.abort(),10000);
+ try{const r=await fetch(u+(u.includes("?")?"&":"?")+"t="+Date.now(),{cache:"no-store",signal:c.signal});return r.ok?await r.text():null}catch{return null}finally{clearTimeout(t)}}
+async function load(){
+ if(!CFG.leavesCsv){if(!LEAVES.length)useEmbed();SYNC={st:"demo"};return}
+ const [a,b]=await Promise.all([txt(CFG.leavesCsv),CFG.doctorsCsv?txt(CFG.doctorsCsv):null]);
+ if(!a||/^\s*</.test(a)){if(!LEAVES.length)useEmbed();SYNC={st:"err"};return}
+ if(b&&!/^\s*</.test(b))setDocs(table(b));setLeaves(table(a));SYNC={st:"live",at:new Date()}}
+
+/* ----- วาดหน้าจอ ----- */
+const ok=l=>(!F.dept||l.dept===F.dept)&&(!F.q||(l.n+l.dept).toLowerCase().includes(F.q));
+function build(){MAP={};VIS=LEAVES.filter(ok);
+ for(const l of VIS)for(let d=l.s,i=0;d<=l.e&&i<400;d=addD(d,1),i++)(MAP[iso(d)]??=[]).push(l)}
+function render(){
+ build();const docs=DOCS.filter(ok),td=iso(TODAY),off=MAP[td]||[],n=names(off);
+ $("#org").textContent=CFG.org;const nt=$("#notice");nt.hidden=!EMB.n.length;nt.innerHTML=EMB.n.map(x=>`📌 <b>${esc(x[0])}</b> · ${esc(x[1])}`).join("<br>");
+ $("#k1").textContent=docs.length;$("#k2").textContent=n;$("#k3").textContent=Math.max(0,docs.length-n);
+ $("#k4").textContent=names(VIS.filter(l=>l.s>TODAY&&l.s<=addD(TODAY,7)));
+ $("#today").innerHTML=off.length?off.map(l=>`<button class="tp" data-d="${td}" style="--c:${l.t.c}">${av(l.n)} ${esc(first(l.n))} ${l.t.e}</button>`).join(""):`<span class="none">🎉 วันนี้แพทย์ครบทุกท่าน ปฏิบัติงานตามปกติ</span>`;
+ const y=view.getFullYear(),m=view.getMonth(),f=new Date(y,m,1),l0=new Date(y,m+1,0),gs=addD(f,-f.getDay()),ge=addD(l0,6-l0.getDay()),inM=new Set();
+ let h="";
+ for(let d=gs;d<=ge;d=addD(d,1)){const ds=iso(d),a=MAP[ds]||[],c=names(a),w=c>=CFG.warnAt,mo=d.getMonth()===m;
+  if(mo)a.forEach(l=>inM.add(l));
+  h+=`<button class="mc ${c?(w?"h3":c>=3?"h2":"h1"):""} ${mo?"":"out"} ${ds===td?"today":""} ${ds<td?"past":""}" data-d="${ds}" aria-label="${fmt(d,{day:"numeric",month:"long"})} ลา ${c} ท่าน">
+  <span class="top"><span class="mn">${d.getDate()}</span>${c?`<span class="bd ${w?"w":""}">${w?"⚠️":"🩺"} ${c}</span>`:""}</span>
+  <span class="chs">${a.slice(0,3).map(l=>`<span class="ch ${l.pend?"pd":""}" style="background:${l.t.c}"><span>${l.t.e}${l.ab?"✈️":""} ${esc(first(l.n))}</span></span>`).join("")}${a.length>3?`<span class="more">+${a.length-3} ท่าน</span>`:""}</span></button>`}
+ $("#cal").innerHTML=h;
+ $("#mt").textContent="📅 "+fmt(view,{month:"long",year:"numeric"});
+ $("#lead").textContent=`เดือนนี้มีการลา ${inM.size} รายการ จากแพทย์ ${docs.length} ท่าน`;
+ $("#legend").innerHTML=TYPES.map(t=>`<span><i style="background:${t.c}"></i>${t.e} ${t.n}</span>`).join("")+`<span>✈️ = ต่างประเทศ</span><span>⏳ ขอบประ = รออนุมัติ</span>`;
+ const s=$("#sync"),S=SYNC;s.className="sync"+(S.st==="err"?" warn":"");
+ s.textContent=S.st==="live"?`🔄 ซิงค์จาก Google Sheet ${p2(S.at.getHours())}:${p2(S.at.getMinutes())} น.`:S.st==="err"?"⚠️ โหลด Google Sheet ไม่ได้ · กำลังแสดงข้อมูลจากไฟล์ Excel":"📋 ข้อมูลจากไฟล์ Excel (ส.ค. 69 – เม.ย. 70) · ใส่ลิงก์ Google Sheet ใน CFG เพื่อซิงค์อัตโนมัติ";
+ const dp=$("#dp"),ds=[...new Set(DOCS.map(d=>d.dept).filter(Boolean))].sort();
+ if(dp.options.length!==ds.length+1){dp.innerHTML=`<option value="">🏥 ทุกแผนก</option>`+ds.map(x=>`<option>${esc(x)}</option>`).join("");dp.value=F.dept}
+ if($("#dlg").open)openDay(cur)}
+function openDay(ds){cur=ds;const d=new Date(ds+"T00:00:00"),a=(MAP[ds]||[]).slice().sort((p,q)=>TYPES.indexOf(p.t)-TYPES.indexOf(q.t)||p.n.localeCompare(q.n,"th")),c=names(a),tot=DOCS.filter(ok).length;
+ $("#sd").textContent=d.getDate();$("#sm").textContent=fmt(d,{month:"short"});
+ $("#st").textContent=fmt(d,{weekday:"long",day:"numeric",month:"long",year:"numeric"});
+ $("#ss").textContent=[ds===iso(TODAY)?"📍 วันนี้":"",`🏖️ ลา ${c} ท่าน`,`✅ ปฏิบัติงาน ${Math.max(0,tot-c)} ท่าน`].filter(Boolean).join(" · ");
+ $("#sb").innerHTML=a.length?a.map(l=>{const len=Math.round((l.e-l.s)/864e5)+1,k=Math.round((d-l.s)/864e5)+1;
+  return `<article class="lv" style="--c:${l.t.c}"><div class="av">${av(l.n)}</div><div><b>${esc(l.n)}</b><span class="dp">🏥 ${esc(l.dept||"ไม่ระบุแผนก")}</span></div>
+  <div class="tg" style="grid-column:1/-1"><span class="ty">${l.t.e} ${esc(l.raw||l.t.n)}</span>${l.ab?"<span>✈️ ต่างประเทศ</span>":""}${l.pend?"<span>⏳ รออนุมัติ</span>":/อนุมัติ/.test(l.st)?"<span>✅ อนุมัติแล้ว</span>":""}${l.half?"<span>🌗 ครึ่งวัน</span>":""}</div>
+  <p>📅 ${len===1?fmt(l.s):fmt(l.s)+" – "+fmt(l.e)} (${len} วัน${len>1?` · วันที่ ${k}/${len}`:""})</p>
+  ${l.raw&&l.raw!==l.t.n?`<p>🏷️ หมวด: ${l.t.n}</p>`:""}${l.cover?`<p>🤝 ผู้ปฏิบัติงานแทน: ${esc(l.cover)}</p>`:""}${l.note?`<p>💬 ${esc(l.note)}</p>`:""}</article>`}).join(""):`<div class="empty"><b>☀️</b>ไม่มีแพทย์ลาในวันนี้</div>`;
+ $("#sb").scrollTop=0;if(!$("#dlg").open)$("#dlg").showModal()}
+function shift(n){const d=addD(new Date(cur+"T00:00:00"),n);if(d.getMonth()!==view.getMonth()){view=new Date(d.getFullYear(),d.getMonth(),1);render()}openDay(iso(d))}
+function go(n){view=new Date(view.getFullYear(),view.getMonth()+n,1);render()}
+document.addEventListener("click",e=>{const b=e.target.closest("[data-d]");if(b)openDay(b.dataset.d);else if(e.target.id==="dlg")$("#dlg").close()});
+$("#x").onclick=()=>$("#dlg").close();$("#pv").onclick=()=>shift(-1);$("#nx").onclick=()=>shift(1);
+$("#mp").onclick=()=>go(-1);$("#mn").onclick=()=>go(1);$("#tdy").onclick=()=>{view=new Date(TODAY.getFullYear(),TODAY.getMonth(),1);render()};
+$("#dlg").addEventListener("keydown",e=>{if(e.key==="ArrowLeft")shift(-1);if(e.key==="ArrowRight")shift(1)});
+let qt;$("#q").oninput=e=>{clearTimeout(qt);qt=setTimeout(()=>{F.q=e.target.value.trim().toLowerCase();render()},150)};
+$("#dp").onchange=e=>{F.dept=e.target.value;render()};
+const th=$("#th");
+function paint(){const d=document.documentElement.dataset.theme==="dark";th.textContent=d?"☀️":"🌙";th.title=d?"เปลี่ยนเป็นโหมดสว่าง":"เปลี่ยนเป็นโหมดมืด";$("#tc").content=d?"#231A1F":"#FFF1F6"}
+th.onclick=()=>{const n=document.documentElement.dataset.theme==="dark"?"light":"dark";document.documentElement.dataset.theme=n;try{localStorage.setItem("lv-theme",n)}catch(e){}paint()};
+try{matchMedia("(prefers-color-scheme:dark)").addEventListener("change",e=>{if(!localStorage.getItem("lv-theme")){document.documentElement.dataset.theme=e.matches?"dark":"light";paint()}})}catch(e){}
+paint();
+(async()=>{await load();render();if(CFG.leavesCsv)setInterval(async()=>{await load();render()},CFG.refreshMin*6e4)})();
+</script>
+</body>
+</html>
